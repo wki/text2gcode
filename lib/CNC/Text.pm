@@ -46,7 +46,7 @@ sub render {
             $self->append(\"Character '$char'");
             
             $self->font->gcode([]);
-            $self->font->render($char, {x => $x_offset});
+            $self->font->render($char, {x => $x_offset, z => $z, z_home => $z_home});
             my ($w, $h) = $self->font->get_dimension($char);
             
             $self->append(@{$_})

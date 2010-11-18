@@ -15,6 +15,8 @@ my $font = CNC::Text::Font->new();
 $font->load('/Users/wolfgang/CNC_Programme/qcad_fonts/romans2.cxf');
 
 my $d = CNC::Text->new({font => $font});
+$d->append('g20');
+
 $d->append('g0', x => 0, y => 10, z => 2, \'first goto');
 # $d->rotate(45);
 $d->append('g0', x => 10, y => 0, z => 2);
@@ -24,8 +26,8 @@ $d->append('g0', x => 10, y => 0, z => 2);
 #print $d->font->as_text . "\n";  exit;
 
 # $d->rotate(15);
-$d->render('Hello', {x => 0, y => 0, angle => 10});
-$d->render('World!', {x => 0, y => -10, angle => -5, scale => 0.75});
+$d->render('Hello', {x => 0, y => 0, rotate => 10});
+$d->render('World!', {x => 0, y => -10, z => -2, z_home => 0.5, rotate => -5, scale => 0.75});
 
 $d->translate(10,20);
 $d->scale(1,0.3);
